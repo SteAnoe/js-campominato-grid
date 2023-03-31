@@ -33,20 +33,39 @@ main{
     height: calc(100vh - 50px);
     background-color: aqua;
     margin-top: 50px;
-    display: grid;
-    place-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
 .grid{
-    border: 1px solid red;
     display: flex;
     flex-wrap: wrap;
     width: 80%;
     height: 80%;
 }
 
-.box{
+.button{
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+
+.box-easy{
     width: calc(100% / 10);
+    border: 1px solid black;
+}
+
+.box-medium{
+    width: calc(100% / 9);
+    border: 1px solid black;
+}
+
+.box-hard{
+    width: calc(100% / 7);
     border: 1px solid black;
 }
 

@@ -7,3 +7,43 @@
 // - con difficoltà 1 => 100 caselle, con un numero compreso tra 1 e 100, divise in 10 caselle per 10 righe;
 // - con difficoltà 2 => 81 caselle, con un numero compreso tra 1 e 81, divise in 9 caselle per 9 righe;
 // - con difficoltà 3 => 49 caselle, con un numero compreso tra 1 e 49, divise in 7 caselle per 7 righe;
+
+
+function creaBox( tipo, classe, testo ){
+    let div = document.createElement( tipo );
+    div.classList.add( classe );
+    div.innerText = testo;
+    return div;
+}
+
+document.getElementById( "play" ).addEventListener( "click", function(){ 
+    let grid = document.querySelector( '.grid' );
+    let diff = document.getElementById( "diff" ).value;
+    let button = document.createElement( "button" );
+    let main = document.querySelector( "main" );
+    button.classList.add( "button" );
+    button.setAttribute( "onclick", "window.location.reload()")
+    button.innerText = "Restart";
+    main.append( button );
+
+    function difficoltà( celle, misure ) {
+        for( let i = 1; i <= celle; i++ ){
+            const creaDiv = creaBox( 'div', misure , i );
+            grid.appendChild( creaDiv );
+            creaDiv.addEventListener( "click", function(){
+            this.classList.toggle( "active" );
+        })
+    }
+    }
+
+    if( diff == "1" ){
+        difficoltà( 100 , "box-easy")
+    } 
+    else if( diff == "2"){
+        difficoltà( 81, "box-medium")
+    }
+    else if( diff == "3"){
+        difficoltà( 49, "box-hard")
+    }
+})
+
