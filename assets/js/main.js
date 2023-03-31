@@ -8,7 +8,7 @@
 // - con difficoltà 2 => 81 caselle, con un numero compreso tra 1 e 81, divise in 9 caselle per 9 righe;
 // - con difficoltà 3 => 49 caselle, con un numero compreso tra 1 e 49, divise in 7 caselle per 7 righe;
 
-
+// funzione custom per creare box
 function creaBox( tipo, classe, testo ){
     let div = document.createElement( tipo );
     div.classList.add( classe );
@@ -16,16 +16,20 @@ function creaBox( tipo, classe, testo ){
     return div;
 }
 
+//funzione al click del bottone play
 document.getElementById( "play" ).addEventListener( "click", function(){ 
+    //variabili
     let grid = document.querySelector( '.grid' );
     let diff = document.getElementById( "diff" ).value;
     let button = document.createElement( "button" );
     let main = document.querySelector( "main" );
+    //creo bottone restart
     button.classList.add( "button" );
     button.setAttribute( "onclick", "window.location.reload()")
     button.innerText = "Restart";
     main.append( button );
 
+    // funzione custom per creare box in base alla difficoltà
     function difficoltà( celle, misure ) {
         for( let i = 1; i <= celle; i++ ){
             const creaDiv = creaBox( 'div', misure , i );
@@ -36,6 +40,7 @@ document.getElementById( "play" ).addEventListener( "click", function(){
     }
     }
 
+    //condizioni di difficoltà
     if( diff == "1" ){
         difficoltà( 100 , "box-easy")
     } 
