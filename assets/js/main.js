@@ -20,6 +20,7 @@ function creaBox( tipo, classe, testo ){
 document.getElementById( "play" ).addEventListener( "click", function(){ 
     //variabili
     let grid = document.querySelector( '.grid' );
+    grid.innerHTML = "";
     let diff = document.getElementById( "diff" ).value;
     let button = document.createElement( "button" );
     let main = document.querySelector( "main" );
